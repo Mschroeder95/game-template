@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Game } from './game/game';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends React.Component {
+  render () {
+    return <div id='app-container'></div>
+  }
+  
+  componentDidMount() {
+    let appContainer = document.getElementById('app-container') as HTMLElement;
+    let game = Game.getInstance();
+    game.setParent(appContainer);
+    game.setViewDimentions(window.innerHeight, window.innerWidth)
+    game.run();
+  }
 }
-
-export default App;
