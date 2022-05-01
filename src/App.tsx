@@ -9,9 +9,6 @@ export class App extends React.Component {
   
   componentDidMount() {
     let appContainer = document.getElementById('app-container') as HTMLElement;
-    let game = Game.getInstance();
-    game.setParent(appContainer);
-    game.setViewDimentions(window.innerHeight, window.innerWidth)
-    game.run();
+    Game.run(window.innerHeight, window.innerWidth, appContainer)
   }
 }
